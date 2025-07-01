@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven {
+            url "${nexus_contextUrl}/gradle-dev"
+            allowInsecureProtocol = true
+            credentials {
+                username = "${nexus_user}"
+                password = "${nexus_password}"
+            }
+        }
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "CameraPreview"
+include ':app'

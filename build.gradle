@@ -1,0 +1,20 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    dependencies {
+        repositories {
+            maven {
+                url "${nexus_contextUrl}/gradle-dev"
+                allowInsecureProtocol = true
+                credentials {
+                    username = "${nexus_user}"
+                    password = "${nexus_password}"
+                }
+            }
+        }
+    }
+}
+plugins {
+    id 'com.android.application' version '8.0.1' apply false
+    id 'com.android.library' version '8.0.1' apply false
+    id 'org.jetbrains.kotlin.android' version '1.8.20' apply false
+}
